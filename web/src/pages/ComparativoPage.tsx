@@ -38,14 +38,14 @@ export default function ComparativoPage() {
     if (!lineaId) return
     setLoading(true)
     try {
-      // Connect to Python Microservice
-      const response = await fetch(`http://localhost:8000/api/predict/harvest?linea_id=${lineaId}`)
-      if (!response.ok) throw new Error("Error connecting to Python Backend")
+      // Connect to Spring Boot Backend
+      const response = await fetch(`http://localhost:8080/api/predict/harvest?linea_id=${lineaId}`)
+      if (!response.ok) throw new Error("Error connecting to Backend")
       const data = await response.json()
       setPredictionData(data)
     } catch (e) {
       console.error(e)
-      alert("Error: Asegúrese de que el backend Python esté corriendo en puerto 8000 (uvicorn main:app)")
+      alert("Error: No se pudo conectar con el servicio de predicción en el puerto 8080")
     } finally {
       setLoading(false)
     }
