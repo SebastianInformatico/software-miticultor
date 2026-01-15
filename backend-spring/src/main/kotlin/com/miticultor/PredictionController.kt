@@ -36,11 +36,14 @@ class PredictionController {
             val monthDate = currentDate.plusMonths(i.toLong())
             val monthName = monthDate.format(DateTimeFormatter.ofPattern("MMMM yyyy"))
 
+             // Safe rounding function
+            fun round(value: Double) = Math.round(value * 10) / 10.0
+
             predicciones.add(mapOf(
                 "mes" to monthName,
-                "talla_estimada_mm" to  String.format("%.1f", currentSize).toDouble(),
-                "talla_min_mm" to String.format("%.1f", minSize).toDouble(),
-                "talla_max_mm" to String.format("%.1f", maxSize).toDouble(),
+                "talla_estimada_mm" to round(currentSize),
+                "talla_min_mm" to round(minSize),
+                "talla_max_mm" to round(maxSize),
                 "probabilidad_exito" to probability
             ))
         }
