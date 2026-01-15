@@ -15,6 +15,7 @@ interface CentroCultivoRepository : JpaRepository<CentroCultivo, Long>
 @Repository
 interface LineaRepository : JpaRepository<Linea, Long> {
     fun findByCentroId(centroId: Long): List<Linea>
+    fun countByCentroId(centroId: Long): Long
 }
 
 @Repository

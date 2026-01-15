@@ -13,9 +13,32 @@ class ProductionController(
     private val centroRepository: CentroCultivoRepository
 ) {
 
+    data class CentroStatsDTO(
+        val id: Long?,
+        val nombre: String,
+        val ubicacionGeografica: String,
+        val totalLineasCapacidad: Int,
+        val lineasActivas: Long,
+        val porcentajeOcupacion: Int
+    )
+
     // --- CENTROS DE CULTIVO ---
     @GetMapping("/centros")
-    fun getAllCentros(): List<CentroCultivo> = centroRepository.findAll()
+    fun getAllCentros(): List<CentroStatsDTO> {
+        return centroRepository.findAll().map { centro ->
+            val activas = lineaRepository.countByCentroId(centro.id!!)
+            val ocupacion = if (centro.totalLineasCapacidad > 0) ((activas.toDouble() / centro.totalLineasCapacidad) * 100).toInt() else 0
+            
+            CentroStatsDTO(
+                id = centro.id,
+                nombre = centro.nombre,
+                ubicacionGeografica = centro.ubicacionGeografica,
+                totalLineasCapacidad = centro.totalLineasCapacidad,
+                lineasActivas = activas,
+                porcentajeOcupacion = ocupacion
+            )
+        }
+    }
 
     @PostMapping("/centros")
     fun createCentro(@RequestBody centro: CentroCultivo): CentroCultivo = centroRepository.save(centro)

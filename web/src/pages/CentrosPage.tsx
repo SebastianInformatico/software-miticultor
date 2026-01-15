@@ -13,6 +13,8 @@ interface Centro {
     nombre: string
     ubicacionGeografica: string
     totalLineasCapacidad: number
+    lineasActivas: number
+    porcentajeOcupacion: number
 }
 
 // Simple random gradient generator for visual distinction
@@ -104,13 +106,26 @@ export default function CentrosPage() {
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <div className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-100">
-                                <div className="flex justify-between text-sm mb-1">
-                                    <span className="text-slate-500">Capacidad Total</span>
-                                    <span className="font-semibold text-slate-700">{centro.totalLineasCapacidad} Líneas</span>
+                            <div className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-100 space-y-3">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-slate-500">Ocupación Actual</span>
+                                    <span className={`font-semibold ${centro.porcentajeOcupacion > 90 ? "text-red-600" : "text-slate-700"}`}>
+                                        {centro.lineasActivas} / {centro.totalLineasCapacidad} Líneas
+                                    </span>
                                 </div>
-                                <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                    <div className="bg-slate-400 h-full w-1/3"></div>
+                                <div className="flex flex-col gap-1">
+                                    <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                        <div 
+                                            className={`h-full transition-all duration-500 rounded-full ${
+                                                centro.porcentajeOcupacion > 90 ? "bg-red-500" : 
+                                                centro.porcentajeOcupacion > 70 ? "bg-amber-500" : "bg-emerald-500"
+                                            }`} 
+                                            style={{ width: `${centro.porcentajeOcupacion}%` }}
+                                        ></div>
+                                    </div>
+                                    <div className="flex justify-end">
+                                         <span className="text-xs font-semibold text-slate-500">{centro.porcentajeOcupacion}% Ocupado</span>
+                                    </div>
                                 </div>
                             </div>
                             <div className="mt-4 flex items-center text-sm font-medium text-indigo-600 group-hover:underline">
