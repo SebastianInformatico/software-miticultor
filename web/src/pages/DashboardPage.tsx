@@ -11,17 +11,14 @@ import CreateSemilla from '../components/CreateSemilla'
 import AsignarSemilla from '../components/AsignarSemilla'
 import MedidaCrecimiento from '../components/MedidaCrecimiento'
 
-import { FarmMap } from '../components/FarmMap'
+
 
 export default function DashboardPage() {
   const [modalOpen, setModalOpen] = useState<'linea' | 'semilla' | 'asignar' | 'medida' | null>(null)
 
   return (
     <div className="space-y-8">
-      {/* 0. Farm Map (Control Tower) */}
-      <div className="animate-in fade-in slide-in-from-top-4 duration-700">
-         <FarmMap />
-      </div>
+
 
       {/* 1. KPI Stats Section */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
