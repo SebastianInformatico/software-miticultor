@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "b5a9c0e2-1234-4567-8901-abcdef123456",
+		"name": "Miticultor API",
+		"description": "API collection for Miticultor Software Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Production",
+			"item": [
+				{
+					"name": "Get All Centros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/centros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"centros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Centro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Centro Nuevo\",\n    \"ubicacion\": \"Coordenadas X,Y\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/centros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"centros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Lineas By Centro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/centros/1/lineas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"centros",
+								"1",
+								"lineas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Lineas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/lineas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lineas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Linea",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Linea 101\",\n    \"largo\": 100,\n    \"centroId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/lineas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lineas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Linea Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/lineas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lineas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Semillas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/semillas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"semillas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Semilla",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tipo\": \"Mytilus\",\n    \"proveedor\": \"Proveedor Local\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/semillas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"semillas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Registro Crecimiento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fechaMedicion\": \"2024-01-15\",\n    \"tallaPromedio\": 2.5,\n    \"linea\": { \"id\": 1 }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/registros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Historial Linea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/lineas/1/historial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lineas",
+								"1",
+								"historial"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Finanzas",
+			"item": [
+				{
+					"name": "Registrar Gasto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descripcion\": \"Combustible\",\n    \"monto\": 50000,\n    \"fecha\": \"2024-01-15\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/finanzas/gastos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"finanzas",
+								"gastos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Gastos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/finanzas/gastos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"finanzas",
+								"gastos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resumen Financiero",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/finanzas/resumen",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"finanzas",
+								"resumen"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bitacora",
+			"item": [
+				{
+					"name": "Get All Eventos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/bitacora",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bitacora"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Evento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Mantenimiento\",\n    \"descripcion\": \"Limpieza de bollas\",\n    \"fecha\": \"2024-01-15\",\n    \"centroId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bitacora",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bitacora"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ventas",
+			"item": [
+				{
+					"name": "Get All Ventas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ventas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Venta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comprador\": \"Empresa X\",\n    \"kilos\": 1000,\n    \"precioPorKilo\": 500,\n    \"totalFinal\": 500000,\n    \"lineaId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/ventas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
