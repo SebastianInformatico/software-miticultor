@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { api } from '../api'
+import { api, BASE_URL } from '../api'
 import { Line } from 'react-chartjs-2'
 import { Button, buttonVariants } from '../components/ui/button'
 import { Input } from '../components/ui/input'
@@ -39,7 +39,7 @@ export default function ComparativoPage() {
     setLoading(true)
     try {
       // Connect to Spring Boot Backend
-      const response = await fetch(`http://localhost:8080/api/predict/harvest?linea_id=${lineaId}`)
+      const response = await fetch(`${BASE_URL}/predict/harvest?linea_id=${lineaId}`)
       if (!response.ok) throw new Error("Error connecting to Backend")
       const data = await response.json()
       setPredictionData(data)
