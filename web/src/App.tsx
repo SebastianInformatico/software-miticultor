@@ -7,7 +7,7 @@ import ComparativoPage from './pages/ComparativoPage'
 import FinanzasPage from './pages/FinanzasPage'
 import CentrosPage from './pages/CentrosPage'
 import BitacoraPage from './pages/BitacoraPage'
-import ReportePage from './pages/ReportePage'
+
 
 export default function App() {
   return (
@@ -22,7 +22,7 @@ export default function App() {
           <Route path="/finanzas" element={<FinanzasPage />} />
           <Route path="/centros" element={<CentrosPage />} />
           <Route path="/bitacora" element={<BitacoraPage />} />
-          <Route path="/reporte" element={<ReportePage />} />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </MainLayout>

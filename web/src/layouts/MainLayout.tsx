@@ -97,11 +97,7 @@ export function MainLayout({ children }: MainLayoutProps) {
            </div>
            
            <div className="flex items-center gap-4">
-             <Link to="/reporte">
-                 <Button variant="outline" size="sm" className="hidden md:flex gap-2 text-indigo-700 bg-indigo-50 border-indigo-100 hover:bg-indigo-100">
-                     <Printer className="h-4 w-4" /> Reporte Ejecutivo
-                 </Button>
-             </Link>
+
              <span className="text-sm text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
                v2.0.1
              </span>
